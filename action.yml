@@ -1,0 +1,18 @@
+name: Upgrade AWS
+description: Upgrade AWS to the latest version
+inputs: {}
+outputs: {}
+runs:
+  using: composite
+  steps:
+    - name: Download and extract
+      shell: bash
+      run: |
+        curl --output awscliv2.zip "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+        unzip awscliv2.zip
+    - name: Install
+      shell: bash
+      run: sudo ./aws/install
+    - name: Check
+      shell: bash
+      run: aws --version
