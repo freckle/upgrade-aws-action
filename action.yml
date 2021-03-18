@@ -12,7 +12,13 @@ runs:
         unzip awscliv2.zip
     - name: Install
       shell: bash
-      run: sudo ./aws/install
+      run: |
+        if ! command -v aws &> /dev/null
+        then
+          sudo ./aws/install
+        else
+          sudo ./aws/install --update
+        fi        
     - name: Check
       shell: bash
       run: aws --version
