@@ -18,7 +18,7 @@ runs:
           sudo ./aws/install
         else
           sudo ./aws/install --update
-        fi        
+        fi
     - name: Check
       shell: bash
       run: aws --version
